@@ -1,6 +1,3 @@
-CREATE DATABASE shop;
-
-
 CREATE TABLE users (
 	id UUID DEFAULT gen_random_uuid () PRIMARY KEY,
 	username VARCHAR(50) NOT NULL,

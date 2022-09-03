@@ -13,6 +13,7 @@ import auth from './middleware/auth';
 import notFound from './middleware/notFound';
 
 import authRouter from './routes/auth';
+import seedRouter from './routes/seed';
 import uploadRouter from './routes/upload';
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(
 );
 
 app.use('/api/auth', authRouter);
+app.use('/api/seed', seedRouter);
 app.use('/api/upload', auth, uploadRouter);
 
 app.use(errorHandler);
@@ -38,7 +40,7 @@ const PORT = process.env.PORT || 5000;
 
 const start = async () => {
   try {
-    const server = app.listen(PORT, () =>
+    app.listen(PORT, () =>
       console.log(`Server is running on port ${PORT}`.green.bold)
     );
   } catch (error) {
