@@ -19,6 +19,7 @@ import uploadRouter from './routes/upload';
 const app = express();
 
 app.set('trust proxy', 1);
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());

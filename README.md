@@ -7,7 +7,7 @@
 3. Run docker-compose
 
 ```
-docker-compose up -d --build
+docker-compose up --build -d
 ```
 
 This will start backend server and postgres.
