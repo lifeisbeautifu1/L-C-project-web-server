@@ -13,6 +13,7 @@ import auth from './middleware/auth';
 import notFound from './middleware/notFound';
 
 import authRouter from './routes/auth';
+import productsRouter from './routes/products';
 import seedRouter from './routes/seed';
 import uploadRouter from './routes/upload';
 
@@ -31,6 +32,7 @@ app.use(
 );
 
 app.use('/api/auth', authRouter);
+app.use('/api/products', productsRouter);
 app.use('/api/seed', seedRouter);
 app.use('/api/upload', auth, uploadRouter);
 
