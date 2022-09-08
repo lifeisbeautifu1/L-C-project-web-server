@@ -8,7 +8,7 @@ import { Pool } from 'pg';
 //   port: +process.env.PG_PORT!,
 // };
 
-const devConfig = `postgresql://harry:89179645957@localhost:5432/shop`;
+const devConfig = `postgresql://postgres:123456@db:5432/postgres`;
 
 const proConfig = process.env.DATABASE_URL;
 

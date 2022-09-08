@@ -5,7 +5,7 @@ import { query } from '../db/db';
 export const createTable = async (req: Request, res: Response) => {
   await query(
     `
-   CREATE TABLE users (
+	CREATE TABLE users (
 	id UUID DEFAULT gen_random_uuid () PRIMARY KEY,
 	username VARCHAR(50) NOT NULL,
 	email VARCHAR(50) NOT NULL UNIQUE,
@@ -15,6 +15,7 @@ export const createTable = async (req: Request, res: Response) => {
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+   
 
 CREATE TABLE reviews (
 	id UUID DEFAULT gen_random_uuid () PRIMARY KEY,
