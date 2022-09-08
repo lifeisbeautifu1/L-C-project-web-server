@@ -85,7 +85,7 @@ CREATE TABLE orders (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	FOREIGN KEY (payment_id) REFERENCES payments(id),
 	FOREIGN KEY (user_id) REFERENCES users(id)
-)
+);
 
 
 CREATE table order_product (
