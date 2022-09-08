@@ -38,3 +38,43 @@ CREATE table product_review (
 	FOREIGN KEY (product_id) REFERENCES products(id),
 	FOREIGN KEY (review_id) REFERENCES reviews(id)
 );
+
+CREATE table payments (
+	id UUID DEFAULT gen_random_uuid () PRIMARY KEY,
+	status VARCHAR(255) NOT NULL,
+	update_time TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+	email_address VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE orders (
+	id UUID DEFAULT gen_random_uuid () PRIMARY KEY,
+	full_name VARCHAR(255) NOT NULL,
+	address VARCHAR(255) NOT NULL,
+	country VARCHAR(255) NOT NULL,
+	postal_code VARCHAR(255) NOT NULL,
+	city VARCHAR(255) NOT NULL,
+	payment_method VARCHAR(255) NOT NULL,
+	payment_id UUID NOT NULL,
+	items_price numeric NOT NULL,
+	shipping_price numeric NOT NULL,
+	tax_price numeric NOT NULL,
+	total_price numeric NOT NULL,
+	user_id UUID NOT NULL,
+	is_paid BOOLEAN DEFAULT FALSE,
+	paid_at TIMESTAMPTZ DEFAULT NOW(),
+	is_delivered BOOLEAN DEFAULT FALSE,
+	delivered_at TIMESTAMPTZ DEFAULT NOW(),
+	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+	FOREIGN KEY (payment_id) REFERENCES payments(id),
+	FOREIGN KEY (user_id) REFERENCES users(id)
+)
+
+
+CREATE table order_product (
+	order_id UUID NOT NULL,
+	product_id UUID NOT NULL,
+	FOREIGN KEY (order_id) REFERENCES orders(id),
+	FOREIGN KEY (product_id) REFERENCES products(id)
+);
