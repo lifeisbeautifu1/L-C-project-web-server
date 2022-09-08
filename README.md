@@ -1,4 +1,4 @@
-# Web Server for L&C Project
+## Web Server for L&C Project
 
 [Link](https://project-landc.herokuapp.com/)
 
