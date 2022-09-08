@@ -32,6 +32,10 @@ app.use(
   })
 );
 
+app.get('/', (req, res) => {
+  res.status(200).send('hello world!');
+});
+
 app.use('/api/auth', authRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/orders', auth, ordersRouter);
