@@ -66,7 +66,7 @@ CREATE TABLE orders (
 	is_delivered BOOLEAN DEFAULT FALSE,
 	delivered_at TIMESTAMPTZ DEFAULT NOW(),
 	created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 	FOREIGN KEY (payment_id) REFERENCES payments(id),
 	FOREIGN KEY (user_id) REFERENCES users(id)
 )
